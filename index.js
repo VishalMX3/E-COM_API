@@ -1,6 +1,16 @@
 const express = require("express");
 const app = express();
 
-app.listen(5000, () => {
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+
+dotenv.config();
+
+mongoose
+  .connect(process.env.MONGO_URL)
+  .then(() => console.log("DB connection successful"))
+  .catch((err) => console.log(err));
+
+app.listen(process.env.port || 5000, () => {
   console.log("Server running on 5000");
 });
