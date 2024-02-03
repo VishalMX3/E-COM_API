@@ -33,11 +33,13 @@ router.post("/login", async (req, res) => {
       process.env.PASS_SEC
     );
 
-    const password = hashedPassword.toString(CryptoJS.enc.Utf8);
-    password !== req.body.password &&
+    const pssword = hashedPassword.toString(CryptoJS.enc.Utf8);
+    pssword !== req.body.password &&
       res.status(401).json("Wrong P-Credentials");
 
-    res.status(200).json(user);
+    const { password, ...others } = user._doc;
+
+    res.status(200).json(others);
   } catch (err) {
     res.status(500).json(err);
   }
