@@ -18,9 +18,9 @@ router.post("/payment", async (req, res) => {
   });
   res.json({ client_secret: paymentIntent.client_secret });
 
-  // stripe.paymentIntents.create(
+  // stripe.charges.create(
   //   {
-  //     source: req.body.tokenId,
+  //     payment_method_details: req.body.tokenId,
   //     amount: req.body.amount,
   //     currency: "inr",
   //   },
