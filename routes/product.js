@@ -12,7 +12,10 @@ router.post("/", verifyTokenAndAdmin, async (req, res) => {
   const newProduct = new Product(req.body);
 
   try {
+    // console.log("entering saving route");
     const savedProduct = await newProduct.save();
+    // console.log("hey");
+    // console.log(savedProduct);
     res.status(200).json(savedProduct);
   } catch (err) {
     res.status(500).json(err);
