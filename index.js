@@ -27,6 +27,6 @@ app.use("/api/products", productRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/carts", cartRoute);
 
-app.listen(process.env.port || 5000, () => {
-  console.log("Server running on 5000");
+app.listen(process.env.PORT || 5000, () => {
+  console.log("Server is running");
 });
